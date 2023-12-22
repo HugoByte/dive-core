@@ -19,6 +19,7 @@ const (
 	PolkadotRemotePackagePath          = "github.com/hugobyte/polkadot-kurtosis-package/"
 	DivePolkadotDefaultNodeSetupScript = "main.star"
 	DivePolkadotRelayNodeSetupScript   = "/relaychain/relay-chain.star"
+	DivePolkadotExplorerPath = "/package_io/plokadot_js.start"
 	DiveDryRun                         = false
 	DiveDefaultParallelism             = 4
 	DiveLogDirectory                   = "/logs/"
