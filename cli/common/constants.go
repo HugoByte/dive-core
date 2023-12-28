@@ -9,6 +9,7 @@ const (
 	DiveIconNodeScript                 = "services/jvm/icon/src/node-setup/start_icon_node.star"
 	DiveIconDecentralizeScript         = "services/jvm/icon/src/node-setup/setup_icon_node.star"
 	DiveEthHardhatNodeScript           = "services/evm/eth/src/node-setup/start-eth-node.star"
+	DiveFoundryScript                  = "services/foundry/build.star"
 	DiveArchwayNodeScript              = "services/cosmvm/archway/src/node-setup/start_node.star"
 	DiveCosmosDefaultNodeScript        = "services/cosmvm/cosmos_chains.star"
 	DiveNeutronNodeScript              = "services/cosmvm/neutron/src/node-setup/start_node.star"

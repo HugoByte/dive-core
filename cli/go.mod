@@ -8,9 +8,15 @@ require (
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/kurtosis-tech/kurtosis/api/golang v0.85.42
 	github.com/kurtosis-tech/stacktrace v0.0.0-20211028211901-1c67a77b5409
+	github.com/mholt/archiver v3.1.1+incompatible
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.8.0
+)
+
+require (
+	github.com/frankban/quicktest v1.14.6 // indirect
+	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 )
 
 require (

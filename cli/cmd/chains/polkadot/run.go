@@ -43,7 +43,7 @@ func RunPolkadot(cli *common.Cli) (*common.DiveMultipleServiceResponse, error) {
 
 	runConfig := getPolkadotRunConfig(serviceConfig, enclaveContext, para)
 
-	response, _, err := enclaveContext.RunStarlarkPackage(cli.Context().GetContext(), common.PolkadotRemotePackagePath, runConfig)
+	response, _, err := enclaveContext.RunStarlarkRemotePackage(cli.Context().GetContext(), common.PolkadotRemotePackagePath, runConfig)
 
 	if err != nil {
 		return nil, common.WrapMessageToError(common.ErrStarlarkRunFailed, err.Error())

@@ -5,6 +5,8 @@ import (
 
 	"github.com/hugobyte/dive-core/cli/cmd/bridge"
 	"github.com/hugobyte/dive-core/cli/cmd/chains"
+	"github.com/hugobyte/dive-core/cli/cmd/foundry"
+
 	"github.com/hugobyte/dive-core/cli/cmd/social"
 	"github.com/hugobyte/dive-core/cli/cmd/utility"
 	"github.com/hugobyte/dive-core/cli/common"
@@ -23,6 +25,7 @@ var rootCmd = common.NewDiveCommandBuilder().
 	AddCommand(social.TwitterCmd).
 	AddCommand(chains.ChainCmd).
 	AddCommand(bridge.BridgeCmd).
+	AddCommand(foundry.FondryCmd).
 	AddCommand(utility.EnclavesCmd).
 	AddBoolPersistentFlag(&common.DiveLogs, "verbose", false, "Prints out logs to Stdout").
 	AddStringPersistentFlag(&common.EnclaveName, "enclaveName", common.DiveEnclave, "Provide Enclave Name To Start Service In Enclave Group").
