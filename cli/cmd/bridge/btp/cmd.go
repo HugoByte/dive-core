@@ -35,7 +35,7 @@ var BtpRelayCmd = common.NewDiveCommandBuilder().
 
 func btpRelay(cmd *cobra.Command, args []string) {
 
-	cliContext := common.GetCli()
+	cliContext := common.GetCli(common.EnclaveName)
 
 	err := common.ValidateArgs(args)
 	if err != nil {

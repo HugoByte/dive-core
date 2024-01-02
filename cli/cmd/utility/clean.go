@@ -15,7 +15,7 @@ var CleanCmd = common.NewDiveCommandBuilder().
 	SetRun(clean).Build()
 
 func clean(cmd *cobra.Command, args []string) {
-	cliContext := common.GetCliWithKurtosisContext()
+	cliContext := common.GetCliWithKurtosisContext(common.EnclaveName)
 
 	err := common.ValidateArgs(args)
 

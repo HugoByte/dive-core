@@ -30,7 +30,7 @@ Along with that setup and starts the ibc relayer to establish communication betw
 
 func ibcRelay(cmd *cobra.Command, args []string) {
 
-	cliContext := common.GetCliWithKurtosisContext()
+	cliContext := common.GetCliWithKurtosisContext(common.EnclaveName)
 
 	err := common.ValidateArgs(args)
 

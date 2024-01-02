@@ -21,25 +21,14 @@ type Cli struct {
 }
 
 func initCli() (*Cli, error) {
-	fileHandler := NewDiveFileHandler()
-
-	pwd, err := fileHandler.GetPwd()
-
-	if err != nil {
-		return nil, WrapMessageToError(err, "Failed To Initialize CLi")
-	}
-	errorLogFilePath := filepath.Join(pwd, DiveLogDirectory, DiveErrorLogFile)
-	infoLogFilePath := filepath.Join(pwd, DiveLogDirectory, DiveDitLogFile)
 
 	return &Cli{
-		log:         NewDiveLogger(infoLogFilePath, errorLogFilePath),
-		spinner:     NewDiveSpinner(),
-		context:     NewDiveContext1(),
-		fileHandler: fileHandler,
+		spinner: NewDiveSpinner(),
+		context: NewDiveContext1(),
 	}, nil
 }
 
-func GetCli() *Cli {
+func GetCli(enclaveName string) *Cli {
 
 	var err error
 	initOnce.Do(func() {
@@ -51,10 +40,27 @@ func GetCli() *Cli {
 		os.Exit(1)
 	}
 
+	fileHandler := NewDiveFileHandler()
+
+	pwd, err := fileHandler.GetPwd()
+
+	if err != nil {
+		fmt.Println("Failed To Initialize CLi", err)
+		os.Exit(1)
+	}
+
+	errorLogFileName := fmt.Sprintf(DiveErrorLogFile, enclaveName)
+	infoLogFileName := fmt.Sprintf(DiveDitLogFile, enclaveName)
+	errorLogFilePath := filepath.Join(pwd, DiveLogDirectory, errorLogFileName)
+	infoLogFilePath := filepath.Join(pwd, DiveLogDirectory, infoLogFileName)
+
+	cliContext.log = NewDiveLogger(infoLogFilePath, errorLogFilePath)
+	cliContext.fileHandler = fileHandler
 	return cliContext
 }
 
-func GetCliWithKurtosisContext() *Cli {
+func GetCliWithKurtosisContext(enclaveName string) *Cli {
+	cliContext = GetCli(enclaveName)
 
 	_, err := cliContext.Context().GetKurtosisContext()
 
